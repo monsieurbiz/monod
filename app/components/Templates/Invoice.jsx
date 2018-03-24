@@ -137,7 +137,7 @@ export default class Invoice extends BaseTemplate {
         <section style={paymentStyle}>
           <h2 style={sectionTitleStyle}>Règlement</h2>
           <p>
-            Le règlement est attendu à reception de la facture,
+            Le règlement est attendu à réception de la facture,
             par chèque à l&apos;ordre de {data.companyAddress.name} ou par virement
             aux coordonnées bancaires suivantes :
           </p>
