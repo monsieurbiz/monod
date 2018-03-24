@@ -43,6 +43,7 @@ The "Invoice" template helps you write invoices.
 reference:
 date:
 amount:
+logo:
 companyAddress:
   name:
   street:
@@ -57,6 +58,10 @@ customerAddress:
   city:
   country:
   businessID:
+companyBank:
+  domiciliation:
+  iban:
+  bic:
 ---
 ```
 

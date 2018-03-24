@@ -10,6 +10,7 @@ export default class Invoice extends BaseTemplate {
       reference: '[reference]',
       date: '[date]',
       amount: '[amount]',
+      logo: null,
       companyAddress: {
         name: '[companyAddress/name]',
         street: '[companyAddress/street]',
@@ -25,6 +26,11 @@ export default class Invoice extends BaseTemplate {
         city: '[customerAddress/city]',
         country: '[customerAddress/country]',
         businessID: '[customerAddress/businessID]',
+      },
+      companyBank: {
+        domiciliation: '[companyBank/domiciliation]',
+        iban: '[companyBank/iban]',
+        bic: '[companyBank/bic]',
       },
     };
   }
@@ -82,15 +88,22 @@ export default class Invoice extends BaseTemplate {
         border: '1px solid #ccc',
       };
 
+    let logo = null
+    if (data.logo) {
+        logo = (
+          <div style={logoStyle}>
+            <img src="{data.logo}" alt="Logo {data.companyAddress.name}" />
+          </div>
+        )
+    }
+
     return (
       <article style={invoiceStyle}>
         <header>
           <div style={invoiceReferenceStyle}>
             FACTURE N°{data.reference}
           </div>
-          <div style={logoStyle}>
-            <img src="http://clermontech.org/images/clermontech_logo_200px.png" alt="Logo Clermont'ech" />
-          </div>
+          {logo}
           <address style={companyAddressStyle}>
             <strong>{data.companyAddress.name}</strong><br />
             {data.companyAddress.street}<br />
@@ -125,14 +138,14 @@ export default class Invoice extends BaseTemplate {
           <h2 style={sectionTitleStyle}>Règlement</h2>
           <p>
             Le règlement est attendu à reception de la facture,
-            par chèque à l&apos;ordre de Clermont&apos;ech ou par virement
+            par chèque à l&apos;ordre de {data.companyAddress.name} ou par virement
             aux coordonnées bancaires suivantes :
           </p>
 
           <pre style={ibanStyle}>
-            Domiciliation : CCM BEAUMONT{'\n'}
-            IBAN : FR76 1558 9636 3805 1013 7084 086{'\n'}
-            BIC : CMBRFR2BARK
+            Domiciliation : {data.companyBank.domiciliation}{'\n'}
+            IBAN : {data.companyBank.iban}{'\n'}
+            BIC : {data.companyBank.bic}
           </pre>
         </section>
       </article>
