@@ -35,6 +35,7 @@ describe('<Invoice />', () => {
           reference: 'DUMMY',
           companyAddress: { name: 'John Doe' },
           customerAddress: { name: 'Jane Doe' },
+          companyBank: { bic: '1234' }
           date: '01/04/2016',
           amount: '42 euros'
         }}
@@ -43,10 +44,12 @@ describe('<Invoice />', () => {
     const html = wrapper.html();
 
     expect(html).to.contain('FACTURE N°DUMMY');
+    expect(html).to.contain('de John Doe ou par virement');
     expect(html).to.contain('<strong>John Doe</strong>');
     expect(html).to.contain('<strong>Jane Doe</strong>');
     expect(html).to.contain('Facture n°DUMMY du 01/04/2016');
     expect(html).to.contain('this is content');
     expect(html).to.contain('Montant : <strong>42 euros</strong>');
+    expect(html).to.contain('BIC : 1234');
   });
 });
