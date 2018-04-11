@@ -88,13 +88,13 @@ export default class Invoice extends BaseTemplate {
         border: '1px solid #ccc',
       };
 
-    let logo = null
+    let logo = null;
     if (data.logo) {
-        logo = (
-          <div style={logoStyle}>
-            <img src="{data.logo}" alt="Logo {data.companyAddress.name}" />
-          </div>
-        )
+      logo = (
+        <div style={logoStyle}>
+          <img src="{data.logo}" alt="Logo {data.companyAddress.name}" />
+        </div>
+      );
     }
 
     return (
