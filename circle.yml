@@ -6,7 +6,7 @@ machine:
 
 dependencies:
   pre:
-    - wget https://saucelabs.com/downloads/sc-4.4.12-linux.tar.gz
+    - curl -O https://saucelabs.com/downloads/sc-4.4.12-linux.tar.gz
     - tar -xzf sc-4.4.12-linux.tar.gz
     - cd sc-*-linux && ./bin/sc --user $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY:
         background: true
