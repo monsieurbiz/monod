@@ -35,7 +35,7 @@ describe('<Invoice />', () => {
           reference: 'DUMMY',
           companyAddress: { name: 'John Doe' },
           customerAddress: { name: 'Jane Doe' },
-          companyBank: { bic: '1234' }
+          companyBank: { bic: '1234' },
           date: '01/04/2016',
           amount: '42 euros'
         }}
