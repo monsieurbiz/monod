@@ -4,7 +4,7 @@
 # ¯¯¯¯¯¯¯¯¯¯¯¯
 
 install: ## Install monod dependencies
-	(cd infra/prod; docker-compose run --rm app bash -c "npm install")
+	(cd infra/prod; docker-compose run --rm app bash -c "npm ci")
 
 up: build ## Up monod
 	(cd infra/prod; docker-compose up -d)
